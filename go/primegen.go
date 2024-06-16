@@ -47,6 +47,17 @@ func main() {
 		count += <-countChannel
 	}
 	fmt.Printf("Total primes for %d natural numbers is %d.\n", limit, count)
+	primeCounts := map[uint32]uint32{
+		10:          4,  // Historical data for validating our results - the number of primes
+		100:         25, // to be found under some limit, such as 168 primes under 1000
+		1_000:       168,
+		10_000:      1229,
+		100_000:     9592,
+		1_000_000:   78498,
+		10_000_000:  664579,
+		100_000_000: 5761455,
+	}
+	fmt.Println("Is number of prime correct? =>", count == primeCounts[limit])
 }
 
 func createChunks(num uint32, size uint32) []uint32 {
