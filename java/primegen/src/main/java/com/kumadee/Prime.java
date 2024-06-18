@@ -70,6 +70,9 @@ public class Prime {
     if (args.length > 0) {
       limit = Long.parseLong(args[0]);
     }
+    if (args.length > 1) {
+      maxWorkers = Integer.parseInt(args[1]);
+    }
     Prime p = new Prime();
     var chunks = p.createChunks(limit, maxWorkers);
     var executor = Executors.newVirtualThreadPerTaskExecutor();
